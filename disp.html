@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<table id="res" > 
+
+</table>
+    
+    
+</body>
+<script>
+    fetch("http://localhost:4000/disp")
+    .then(async(e)=>{
+        var a = await e.json()
+        temp="<tr><th>Name</th><th>email</th><th>Mobile Number</th></tr>"
+        for(let d of a)
+        {
+            temp+="<tr><td>"+d.name+"</td><td>"+d.mail+"</td><td>"+d.p_no+"</td></tr>"
+        }
+        document.getElementById("res").innerHTML=temp
+    })
+</script>
+</html>
